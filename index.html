@@ -72,7 +72,7 @@ cursor:pointer;
 .card:hover {transform:scale(1.05);}
 .card img {
 width:100%;
-height:140px;
+height: 250px;
 object-fit:cover;
 }
 .card h4 {
@@ -124,157 +124,220 @@ cursor:pointer;
 color:#df0b0b;
 user-select: none; /* yanıp sönen işaretin çıkmasını engelliyor */
 }
+
+/* --- YENİ EKLENEN STİLLER --- */
+
+/* Kategori bölümlerini varsayılan olarak gizle */
+.category-section {
+  display: none;
+}
+
+/* Geri dön butonu stili */
+.back-button {
+  display: inline-block;
+  margin: 0 0 15px 20px; /* Kapağın altındaki section'a uyumlu */
+  padding: 10px 18px;
+  background-color: #c0392b; /* Fiyat rengiyle uyumlu */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+.back-button:hover {
+  background-color: #a93226;
+}
+
+/* --- SADECE ANA MENÜ KARTLARI İÇİN STİLLER (YENİ) --- */
+#main-menu .card h4 {
+  color: #c0392b;
+  font-weight: bold;
+  font-size: 18px; /* İsteğe bağlı, biraz daha büyük görünmesi için */
+}
+
 </style>
 </head>
 <body>
 
-<!-- Kapak -->
 <div class="hero">
 <span>Mika Restaurant</span>
 </div>
 
-<!-- Çorbalar -->
-<div class="section">
-<h2>Çorbalar</h2>
-<div class="menu">
-<div class="card" onclick="openModal('mercimek corbası.jpg','Mercimek Çorbası','Klasik mercimek çorbası, limon ve tereyağ sos ile.','120 ₺')">
-<img src="mercimek corbası.jpg"><h4>Mercimek Çorbası</h4><p>Klasik lezzet</p><div class="price">120 ₺</div>
-</div>
-<div class="card" onclick="openModal('ezogelin.jfif','Ezogelin Çorbası','Baharatlı ezogelin çorbası.','130 ₺')">
-<img src="ezogelin.jfif"><h4>Ezogelin Çorbası</h4><p>Baharatlı</p><div class="price">130 ₺</div>
-</div>
-<div class="card" onclick="openModal('domates.avif','Domates Çorbası','Kaşarlı domates çorbası.','110 ₺')">
-<img src="domates.avif"><h4>Domates Çorbası</h4><p>Kaşarlı servis</p><div class="price">110 ₺</div>
-</div>
-<div class="card" onclick="openModal('balik corbasi.jpeg','Balık Çorbası','Taze balıktan şefin özel tarifi.','150 ₺')">
-<img src="balik corbasi.jpeg"><h4>Balık Çorbası</h4><p>Şefin tarifi</p><div class="price">150 ₺</div>
-</div>
-</div>
-</div>
-
-<!-- Ana Yemekler -->
-<div class="section">
-<h2>Ana Yemekler</h2>
-
-<div class="subsection">
-<h3>Beyaz Etler</h3>
-<div class="menu">
-<div class="card" onclick="openModal('ızgara tavuk.jfif','Izgara Tavuk','Baharatlı tavuk göğsü, garnitür ile.','250 ₺')">
-<img src="ızgara tavuk.jfif"><h4>Izgara Tavuk</h4><p>Baharatlı</p><div class="price">250 ₺</div>
-</div>
-<div class="card" onclick="openModal('tavuk sis.jpg','Tavuk Şiş','Sebzeli tavuk şiş.','270 ₺')">
-<img src="tavuk sis.jpg"><h4>Tavuk Şiş</h4><p>Sebzeli</p><div class="price">270 ₺</div>
-</div>
-<div class="card" onclick="openModal('kremalı tavuk.jfif','Kremalı Tavuk','Mantar soslu tavuk.','290 ₺')">
-<img src="kremalı tavuk.jfif"><h4>Kremalı Tavuk</h4><p>Mantar soslu</p><div class="price">290 ₺</div>
-</div>
-</div>
-</div>
-
-<div class="subsection">
-<h3>Kırmızı Etler</h3>
-<div class="menu">
-<div class="card" onclick="openModal('biftek.jpg','Izgara Biftek','Özel marine biftek.','450 ₺')">
-<img src="biftek.jpg"><h4>Izgara Biftek</h4><p>Marine edilmiş</p><div class="price">450 ₺</div>
-</div>
-<div class="card" onclick="openModal('kuzu pirzola.jfif','Kuzu Pirzola','Izgara kuzu pirzola, köz sebze ile.','480 ₺')">
-<img src="kuzu pirzola.jfif"><h4>Kuzu Pirzola</h4><p>Köz sebze ile</p><div class="price">480 ₺</div>
-</div>
-<div class="card" onclick="openModal('dana guvec.jpg','Dana Güveç','Sebzeli dana güveç.','420 ₺')">
-<img src="dana guvec.jpg"><h4>Dana Güveç</h4><p>Sebzeli</p><div class="price">420 ₺</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Balıklar -->
-<div class="section">
-<h2>Balıklar</h2>
-<div class="menu">
-<div class="card" onclick="openModal('levrek ızgara.jpg','Levrek Izgara','Taze levrek, şefin sosu ile.','390 ₺')">
-<img src="levrek ızgara.jpg"><h4>Levrek Izgara</h4><p>Şefin sosu</p><div class="price">390 ₺</div>
-</div>
-<div class="card" onclick="openModal('cipura ızgara.jpg','Çipura Izgara','Izgara çipura, roka salata ile.','370 ₺')">
-<img src="cipura ızgara.jpg"> <h4>Levrek Izgara</h4><p>Şefin sosu</p><div class="price">390 ₺</div>
-</div>
-<div class="card" onclick="openModal('somon fileto.jfif','Somon Fileto','Izgara somon, tereyağlı sebzeler.','420 ₺')">
-<img src="somon fileto.jfif"><h4>Somon Fileto</h4><p>Tereyağlı sebzeler</p><div class="price">420 ₺</div>
-</div>
-<div class="card" onclick="openModal('karides guvec.jpg','Karides Güveç','Fırında kaşarlı karides güveç.','460 ₺')">
-<img src="karides guvec.jpg"><h4>Karides Güveç</h4><p>Kaşarlı</p><div class="price">460 ₺</div>
-</div>
-</div>
-</div>
-
-<!-- İçecekler -->
-<div class="section">
-    <h2>İçecekler</h2>
-    
-    <div class="subsection">
-    <h3>Alkolsüz İçecekler</h3>
+<div id="main-menu" class="section">
+    <h2>Menü Kategorileri</h2>
     <div class="menu">
-    <div class="card" onclick="openModal('ayran.jpg','Ayran','Soğuk ayran.','60 ₺')">
-    <img src="ayran.jpg"><h4>Ayran</h4><p>Soğuk</p><div class="price">60 ₺</div>
+        <div class="card" onclick="showSection('corbalar-section')">
+            <img src="mercimek corbası.jpg"> <h4>Çorbalar</h4>
+            <p>Sıcak bir başlangıç</p>
+        </div>
+        <div class="card" onclick="showSection('anayemekler-section')">
+            <img src="ızgara tavuk.jfif"> <h4>Ana Yemekler</h4>
+            <p>Beyaz ve Kırmızı Etler</p>
+        </div>
+        <div class="card" onclick="showSection('baliklar-section')">
+            <img src="levrek ızgara.jpg"> <h4>Balıklar</h4>
+            <p>Denizden Gelen Lezzetler</p>
+        </div>
+        <div class="card" onclick="showSection('icecekler-section')">
+            <img src="beyaz sarap.jpeg"> <h4>İçecekler</h4>
+            <p>Alkollü ve Alkolsüz</p>
+        </div>
     </div>
-    <div class="card" onclick="openModal('kola.jpg','Kola','Klasik gazlı içecek.','70 ₺')">
-    <img src="kola.jpg"><h4>Kola</h4><p>Gazlı içecek</p><div class="price">70 ₺</div>
-    </div>
-    <div class="card" onclick="openModal('portakal suyu.jpg','Taze Portakal Suyu','Günlük sıkma portakal.','90 ₺')">
-    <img src="portakal suyu.jpg"><h4>Portakal Suyu</h4><p>Taze sıkma</p><div class="price">90 ₺</div>
-    </div>
-    </div>
-    </div>
-    <br>
-    <div class="subsection">
-    <h3>Alkollü İçecekler</h3>
-    <div class="subsection">
-        <h4>Beyaz Şaraplar</h4>
+</div>
+
+<div id="corbalar-section" class="category-section">
+    <button class="back-button" onclick="showMainMenu()">&larr; Geri Dön</button>
+    
+    <div class="section">
+        <h2>Çorbalar</h2>
         <div class="menu">
-        <div class="card" onclick="openModal('beyaz sarap.jpeg','Chardonnay','Yerel bağlardan Chardonnay.','220 ₺')">
-        <img src="beyaz sarap.jpeg"><h4>Chardonnay</h4><p>Kadeh</p><div class="price">220 ₺</div>
+            <div class="card" onclick="openModal('mercimek corbası.jpg','Mercimek Çorbası','Klasik mercimek çorbası, limon ve tereyağ sos ile.','120 ₺')">
+            <img src="mercimek corbası.jpg"><h4>Mercimek Çorbası</h4><p>Klasik lezzet</p><div class="price">120 ₺</div>
+            </div>
+            <div class="card" onclick="openModal('ezogelin.jfif','Ezogelin Çorbası','Baharatlı ezogelin çorbası.','130 ₺')">
+            <img src="ezogelin.jfif"><h4>Ezogelin Çorbası</h4><p>Baharatlı</p><div class="price">130 ₺</div>
+            </div>
+            <div class="card" onclick="openModal('domates.avif','Domates Çorbası','Kaşarlı domates çorbası.','110 ₺')">
+            <img src="domates.avif"><h4>Domates Çorbası</h4><p>Kaşarlı servis</p><div class="price">110 ₺</div>
+            </div>
+            <div class="card" onclick="openModal('balik corbasi.jpeg','Balık Çorbası','Taze balıktan şefin özel tarifi.','150 ₺')">
+            <img src="balik corbasi.jpeg"><h4>Balık Çorbası</h4><p>Şefin tarifi</p><div class="price">150 ₺</div>
+            </div>
         </div>
-        <div class="card" onclick="openModal('beyaz sarap 2.jpg','Sauvignon Blanc','Serin iklim bağlarından Sauvignon Blanc.','230 ₺')">
-        <img src="beyaz sarap 2.jpg"><h4>Sauvignon Blanc</h4><p>Kadeh</p><div class="price">230 ₺</div>
-        </div>
-        <div class="card" onclick="openModal('beyaz sarap 3.jpg','Riesling','Alman Riesling üzümlerinden, aromatik ve hafif.','240 ₺')">
-        <img src="beyaz sarap 3.jpg"><h4>Riesling</h4><p>Kadeh</p><div class="price">240 ₺</div>
-        </div>
-        </div>
-        </div>
-        
+    </div>
+    </div>
+
+<div id="anayemekler-section" class="category-section">
+    <button class="back-button" onclick="showMainMenu()">&larr; Geri Dön</button>
+    
+    <div class="section">
+        <h2>Ana Yemekler</h2>
         <div class="subsection">
-        <h4>Kırmızı Şaraplar</h4>
-        <div class="menu">
-        <div class="card" onclick="openModal('kırmızı sarap 1.jfif','Merlot','Yumuşak gövdeli Merlot, meyvemsi notalar.','220 ₺')">
-        <img src="kırmızı sarap 1.jfif"><h4>Merlot</h4><p>Kadeh</p><div class="price">220 ₺</div>
+            <h3>Beyaz Etler</h3>
+            <div class="menu">
+            <div class="card" onclick="openModal('ızgara tavuk.jfif','Izgara Tavuk','Baharatlı tavuk göğsü, garnitür ile.','250 ₺')">
+            <img src="ızgara tavuk.jfif"><h4>Izgara Tavuk</h4><p>Baharatlı</p><div class="price">250 ₺</div>
+            </div>
+            <div class="card" onclick="openModal('tavuk sis.jpg','Tavuk Şiş','Sebzeli tavuk şiş.','270 ₺')">
+            <img src="tavuk sis.jpg"><h4>Tavuk Şiş</h4><p>Sebzeli</p><div class="price">270 ₺</div>
+            </div>
+            <div class="card" onclick="openModal('kremalı tavuk.jfif','Kremalı Tavuk','Mantar soslu tavuk.','290 ₺')">
+            <img src="kremalı tavuk.jfif"><h4>Kremalı Tavuk</h4><p>Mantar soslu</p><div class="price">290 ₺</div>
+            </div>
+            </div>
         </div>
-        <div class="card" onclick="openModal('kırmızı sarap 2.jpg','Cabernet Sauvignon','Dolgun gövdeli, klasik kırmızı şarap.','240 ₺')">
-        <img src="kırmızı sarap 2.jpg"><h4>Cabernet Sauvignon</h4><p>Kadeh</p><div class="price">240 ₺</div>
-        </div>
-        <div class="card" onclick="openModal('kırmızı sarap 3.jpg','Pinot Noir','Hafif ve meyvemsi, şık kırmızı şarap.','250 ₺')">
-        <img src="kırmızı sarap 3.jpg"><h4>Pinot Noir</h4><p>Kadeh</p><div class="price">250 ₺</div>
-        </div>
-        </div>
-        </div>
-        
         <div class="subsection">
-        <h4>Biralar</h4>
+            <h3>Kırmızı Etler</h3>
+            <div class="menu">
+            <div class="card" onclick="openModal('biftek.jpg','Izgara Biftek','Özel marine biftek.','450 ₺')">
+            <img src="biftek.jpg"><h4>Izgara Biftek</h4><p>Marine edilmiş</p><div class="price">450 ₺</div>
+            </div>
+            <div class="card" onclick="openModal('kuzu pirzola.jfif','Kuzu Pirzola','Izgara kuzu pirzola, köz sebze ile.','480 ₺')">
+            <img src="kuzu pirzola.jfif"><h4>Kuzu Pirzola</h4><p>Köz sebze ile</p><div class="price">480 ₺</div>
+            </div>
+            <div class="card" onclick="openModal('dana guvec.jpg','Dana Güveç','Sebzeli dana güveç.','420 ₺')">
+            <img src="dana guvec.jpg"><h4>Dana Güveç</h4><p>Sebzeli</p><div class="price">420 ₺</div>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+<div id="baliklar-section" class="category-section">
+    <button class="back-button" onclick="showMainMenu()">&larr; Geri Dön</button>
+    
+    <div class="section">
+        <h2>Balıklar</h2>
         <div class="menu">
-        <div class="card" onclick="openModal('efes pilsen.jpg','Efes Pilsen','Klasik Türk birası.','140 ₺')">
-        <img src="efes pilsen.jpg"><h4>Efes Pilsen</h4><p>Şişe</p><div class="price">140 ₺</div>
+            <div class="card" onclick="openModal('levrek ızgara.jpg','Levrek Izgara','Taze levrek, şefin sosu ile.','390 ₺')">
+            <img src="levrek ızgara.jpg"><h4>Levrek Izgara</h4><p>Şefin sosu</p><div class="price">390 ₺</div>
+            </div>
+            <div class="card" onclick="openModal('cipura ızgara.jpg','Çipura Izgara','Izgara çipura, roka salata ile.','370 ₺')">
+            <img src="cipura ızgara.jpg"> <h4>Levrek Izgara</h4><p>Şefin sosu</p><div class="price">390 ₺</div>
+            </div>
+            <div class="card" onclick="openModal('somon fileto.jfif','Somon Fileto','Izgara somon, tereyağlı sebzeler.','420 ₺')">
+            <img src="somon fileto.jfif"><h4>Somon Fileto</h4><p>Tereyağlı sebzeler</p><div class="price">420 ₺</div>
+            </div>
+            <div class="card" onclick="openModal('karides guvec.jpg','Karides Güveç','Fırında kaşarlı karides güveç.','460 ₺')">
+            <img src="karides guvec.jpg"><h4>Karides Güveç</h4><p>Kaşarlı</p><div class="price">460 ₺</div>
+            </div>
         </div>
-        <div class="card" onclick="openModal('bomonti filtresiz.jfif','Bomonti Filtresiz','Yerel bira, hafif acılık.','150 ₺')">
-        <img src="bomonti filtresiz.jfif"><h4>Bomonti Filtresiz</h4><p>Şişe</p><div class="price">150 ₺</div>
-        </div>
-        <div class="card" onclick="openModal('tuborg sise.jfif','Tuborg','Klasik lager, orta gövde.','145 ₺')">
-        <img src="tuborg sise.jfif"><h4>Tuborg</h4><p>Şişe</p><div class="price">145 ₺</div>
-        </div>
-        </div>
-        </div>
+    </div>
+    </div>
+
+<div id="icecekler-section" class="category-section">
+    <button class="back-button" onclick="showMainMenu()">&larr; Geri Dön</button>
+
+    <div class="section">
+        <h2>İçecekler</h2>
+        <div class="subsection">
+        <h3>Alkolsüz İçecekler</h3>
+        <div class="menu">
+        <div class="card" onclick="openModal('ayran.jpg','Ayran','Soğuk ayran.','60 ₺')">
+        <img src="ayran.jpg"><h4>Ayran</h4><p>Soğuk</p><div class="price">60 ₺</div>
+        </div>
+        <div class="card" onclick="openModal('kola.jpg','Kola','Klasik gazlı içecek.','70 ₺')">
+        <img src="kola.jpg"><h4>Kola</h4><p>Gazlı içecek</p><div class="price">70 ₺</div>
+        </div>
+        <div class="card" onclick="openModal('portakal suyu.jpg','Taze Portakal Suyu','Günlük sıkma portakal.','90 ₺')">
+        <img src="portakal suyu.jpg"><h4>Portakal Suyu</h4><p>Taze sıkma</p><div class="price">90 ₺</div>
+        </div>
+        </div>
+        </div>
+        <br>
+        <div class="subsection">
+        <h3>Alkollü İçecekler</h3>
+        <div class="subsection">
+            <h4>Beyaz Şaraplar</h4>
+            <div class="menu">
+            <div class="card" onclick="openModal('beyaz sarap.jpeg','Chardonnay','Yerel bağlardan Chardonnay.','220 ₺')">
+            <img src="beyaz sarap.jpeg"><h4>Chardonnay</h4><p>Kadeh</p><div class="price">220 ₺</div>
+            </div>
+            <div class="card" onclick="openModal('beyaz sarap 2.jpg','Sauvignon Blanc','Serin iklim bağlarından Sauvignon Blanc.','230 ₺')">
+            <img src="beyaz sarap 2.jpg"><h4>Sauvignon Blanc</h4><p>Kadeh</p><div class="price">230 ₺</div>
+            </div>
+            <div class="card" onclick="openModal('beyaz sarap 3.jpg','Riesling','Alman Riesling üzümlerinden, aromatik ve hafif.','240 ₺')">
+            <img src="beyaz sarap 3.jpg"><h4>Riesling</h4><p>Kadeh</p><div class="price">240 ₺</div>
+            </div>
+            </div>
+            </div>
+            
+            <div class="subsection">
+            <h4>Kırmızı Şaraplar</h4>
+            <div class="menu">
+            <div class="card" onclick="openModal('kırmızı sarap 1.jfif','Merlot','Yumuşak gövdeli Merlot, meyvemsi notalar.','220 ₺')">
+            <img src="kırmızı sarap 1.jfif"><h4>Merlot</h4><p>Kadeh</p><div class="price">220 ₺</div>
+            </div>
+            <div class="card" onclick="openModal('kırmızı sarap 2.jpg','Cabernet Sauvignon','Dolgun gövdeli, klasik kırmızı şarap.','240 ₺')">
+            <img src="kırmızı sarap 2.jpg"><h4>Cabernet Sauvignon</h4><p>Kadeh</p><div class="price">240 ₺</div>
+            </div>
+            <div class="card" onclick="openModal('kırmızı sarap 3.jpg','Pinot Noir','Hafif ve meyvemsi, şık kırmızı şarap.','250 ₺')">
+            <img src="kırmızı sarap 3.jpg"><h4>Pinot Noir</h4><p>Kadeh</p><div class="price">250 ₺</div>
+            </div>
+            </div>
+            </div>
+            
+            <div class="subsection">
+            <h4>Biralar</h4>
+            <div class="menu">
+            <div class="card" onclick="openModal('efes pilsen.jpg','Efes Pilsen','Klasik Türk birası.','140 ₺')">
+            <img src="efes pilsen.jpg"><h4>Efes Pilsen</h4><p>Şişe</p><div class="price">140 ₺</div>
+            </div>
+            <div class="card" onclick="openModal('bomonti filtresiz.jfif','Bomonti Filtresiz','Yerel bira, hafif acılık.','150 ₺')">
+            <img src="bomonti filtresiz.jfif"><h4>Bomonti Filtresiz</h4><p>Şişe</p><div class="price">150 ₺</div>
+            </div>
+            <div class="card" onclick="openModal('tuborg sise.jfif','Tuborg','Klasik lager, orta gövde.','145 ₺')">
+            <img src="tuborg sise.jfif"><h4>Tuborg</h4><p>Şişe</p><div class="price">145 ₺</div>
+            </div>
+            </div>
+            </div>
+        </div>
+    </div>
     </div>
 
 
-<!-- Popup -->
 <div id="menuModal" class="modal">
 <div class="modal-content">
 <span class="close" onclick="closeModal()">&times;</span>
@@ -286,6 +349,34 @@ user-select: none; /* yanıp sönen işaretin çıkmasını engelliyor */
 </div>
 
 <script>
+// --- YENİ EKLENEN FONKSİYONLAR ---
+
+function showSection(sectionId) {
+  // Ana menüyü gizle
+  document.getElementById('main-menu').style.display = 'none';
+  
+  // İstenen bölümü göster
+  document.getElementById(sectionId).style.display = 'block';
+  
+  // Sayfanın başına git (daha iyi bir kullanıcı deneyimi için)
+  window.scrollTo(0, 0);
+}
+
+function showMainMenu() {
+  // Tüm kategori bölümlerini gizle
+  document.querySelectorAll('.category-section').forEach(section => {
+    section.style.display = 'none';
+  });
+  
+  // Ana menüyü göster
+  document.getElementById('main-menu').style.display = 'block';
+
+  // Sayfanın başına git
+  window.scrollTo(0, 0);
+}
+
+// --- ORİJİNAL POPUP FONKSİYONLARINIZ (Değişiklik yok) ---
+
 function openModal(img, title, desc, price) {
 document.getElementById('menuModal').style.display = 'flex';
 document.getElementById('modalImg').src = img;
